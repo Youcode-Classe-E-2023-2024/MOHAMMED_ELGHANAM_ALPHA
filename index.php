@@ -6,9 +6,7 @@ include_once '_config/db.php';
 
 
 
-spl_autoload_register(function ($class) {
-    include_once '_classes/' . $class . '.php';
-});
+
 
 if (isset($_GET['page']) && !empty($_GET['page'])) {
     $page = trim(strtolower($_GET['page']));
