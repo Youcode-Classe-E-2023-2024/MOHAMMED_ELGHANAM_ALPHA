@@ -14,8 +14,8 @@ if (isset($_POST['send'])){
     // echo "<pre>";
     // print_r($user);
     // echo "<pre>";
-     
-    header("location: index.php?page=chat");
+    echo "<script> alert('le code nadi'); </script>";
+    // header("location: index.php?page=chat");
     // echo "jab data";
     exit();  
 
