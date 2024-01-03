@@ -14,7 +14,7 @@ if (isset($_POST['send'])) {
     
     
     $rows = $result['user_id'];
-    $_SESSION['id'] = $rows;
+    $_SESSION['user_id'] = $rows;
     
     // echo"<pre>";
     // var_dump($rows);

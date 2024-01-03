@@ -13,7 +13,7 @@
     <div class="bg-white p-8 rounded shadow-md w-96 ">
         <h2 class="text-2xl font-semibold mb-6 text-center">Change Password</h2>
 
-        <form action="handel_check_code.php" method="post">
+        <form action="index.php?page=check_code" method="post">
 
             <!-- Email Input -->
             <div class="mb-4">
