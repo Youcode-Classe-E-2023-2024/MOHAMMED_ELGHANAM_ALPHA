@@ -56,7 +56,7 @@ if (isset($_POST['send'])) {
             $mail->addAddress($email, 'Nom de l\'utilisateur');
             $mail->Subject = 'change password';
             $mail->Body = "bonjour monsieur Ceci est le code de réinitialisation du mot de passe $token .";
-            header('location: check_code.php');
+            header('location: index.php?page=check_code');
 
 
             try {
