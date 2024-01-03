@@ -12,7 +12,7 @@
     <div class="bg-white p-8 rounded shadow-md w-96 ">
         <h2 class="text-2xl font-semibold mb-6 text-center">Add Email</h2>
 
-        <form action="handel_forget.php" method="post">
+        <form action="index.php?page=forget_password" method="post">
 
             <!-- Email Input -->
             <div class="mb-4">
