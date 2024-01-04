@@ -33,7 +33,7 @@ public function select($sql,$email,$new_password){
     if ($email === $row['email'] && $new_password === $row['password'] ){
         return $row;
     }else {          
-        echo "ERROR : " . mysqli_error($db);
+        header("location:index.php?page=register");
     }
 }
 
