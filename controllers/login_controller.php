@@ -46,7 +46,7 @@ if (isset($_POST['send'])){
     // echo "<pre>";
     // echo "<script> alert('le code nadi'); </script>";
     if ($user) {
-        header("location: index.php?page=dashboard");
+        header("location: index.php?page=home");
     }
     
     // echo "jab data";
