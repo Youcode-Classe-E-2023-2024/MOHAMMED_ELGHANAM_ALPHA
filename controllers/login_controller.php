@@ -15,7 +15,10 @@ if (isset($_POST['send'])){
     // print_r($user);
     // echo "<pre>";
     // echo "<script> alert('le code nadi'); </script>";
-    header("location: index.php?page=dashboard");
+    if ($user) {
+        header("location: index.php?page=dashboard");
+    }
+    
     // echo "jab data";
     exit();  
 
