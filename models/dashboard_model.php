@@ -20,8 +20,11 @@ class DASHBOARD{
 
     }
 
-    public function delete(){
-
+    public function delete($user_id){
+        if (isset($user_id)) {
+            
+            $sql =  "DELETE FROM signup WHERE user_id = $user_id ";
+        }
     }
 
     
