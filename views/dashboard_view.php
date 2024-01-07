@@ -1,3 +1,7 @@
+<?php
+$objet_dashboard = new  DASHBOARD();
+$result = $objet_dashboard->select();
+?>
 <!-- component -->
 <!DOCTYPE html>
 <html x-data="data()" lang="en">
@@ -283,13 +287,20 @@
                                                                         </th>
                                                                     </tr>
                                                                 </thead>
-                                                                <tbody class="bg-white divide-y divide-gray-200">
-                                                                    <tr>
+                                                                <tbody class="bg-green-600 divide-y divide-gray-200">
+                                                                    <?php 
+                                                                    $rows = array();
+                                                                    while ($row = mysqli_fetch_assoc($result)) { 
+                                                                        $rows[] = $row?>
+                
+            
+                                                                    <tr class="bg-blue-500">
                                                                         <td>
                                                                             1
                                                                         </td>
                                                                         <td
                                                                             class="px-6 py-4 whitespace-no-wrap text-sm leading-5">
+                                                                            <?php echo $rows['user_id']; ?>
                                                                             MOHAMMED
                                                                         </td>
                                                                         <td
@@ -326,6 +337,7 @@
                                                                             </div>
                                                                         </td>
                                                                     </tr>
+                                                                    <?php } ?>
                                                                 </tbody>
                                                             </table>
                                                         </div>

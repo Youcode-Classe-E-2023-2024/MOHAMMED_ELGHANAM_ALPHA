@@ -8,13 +8,11 @@ class DASHBOARD{
         $sql = " SELECT * FROM signup ";
         $result = mysqli_query($db,$sql);
 
-        $rows = array();
+        
         if (!$result) {
             die("error in selectining");
         }else {
-            
-            return $rows;
-            
+            return $result;
         }
 
     }
