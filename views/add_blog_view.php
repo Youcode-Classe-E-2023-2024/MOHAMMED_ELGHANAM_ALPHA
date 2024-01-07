@@ -51,7 +51,7 @@
     </form>
 
  
-  <button type="submit"
+  <button type="submit" id="send"
     class="bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600 focus:outline-none focus:ring focus:border-blue-300">
     Send
   </button>
@@ -102,6 +102,13 @@
         $(this).parent().remove();
       });
 
+      $("#send").click(function (e) { 
+        e.preventDefault();
+
+        console.log('helllllo');
+        
+      });
+
       // $("#data_form").submit(function (e) {
       //   e.preventDefault();
 
@@ -109,17 +116,16 @@
 
       //   $.ajax({
       //     type: "post",
-      //     url: "insert_data.php",
+      //     url: "index.php?page=add_blog",
       //     data: data_form,
 
-      //     success: function (response) {
-      //       console.log(response);
+      //     success: function () {
+      //       console.log('helllllo');
       //     }
-
       //   });
 
-
       // });
+
 
     });
 
