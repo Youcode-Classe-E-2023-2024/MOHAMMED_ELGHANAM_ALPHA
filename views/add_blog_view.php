@@ -7,14 +7,14 @@
   <title>Add Blog Form</title>
   <!-- Add the Tailwind CSS CDN or include your compiled CSS file here -->
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
 </head>
 
 <body class="bg-gray-100 p-8 ">
 
  
 
-    <form action="#" method="post" id="data_form" class="space-y-4">
+    <form id="data_form" action="#" method="post"  class="space-y-4">
       <div class="show">
         <div class="show-container mb-8 max-w-md mx-auto bg-white p-6 rounded-md shadow-md">
           <!-- title -->
@@ -56,7 +56,7 @@
     Send
   </button>
 
-
+  <script src="jquery-3.7.1.min.js"></script>
   <script>
 
     $(document).ready(function () {
@@ -105,26 +105,27 @@
       $("#send").click(function (e) { 
         e.preventDefault();
 
-        console.log('helllllo');
+        console.log('helllllo <br>');
         
       });
 
-      // $("#data_form").submit(function (e) {
-      //   e.preventDefault();
+      $("#data_form").submit(function (e) {
+        e.preventDefault();
+        console.log('ok');
+        
+        // var data_form = $("#data_form").serialize();
 
-      //   var data_form = $("#data_form").serialize();
+        // $.ajax({
+        //   type: "post",
+        //   url: "index.php?page=add_blog",
+        //   data: data_form,
 
-      //   $.ajax({
-      //     type: "post",
-      //     url: "index.php?page=add_blog",
-      //     data: data_form,
+        //   success: function () {
+        //     console.log('helllllo');
+        //   }
+        // });
 
-      //     success: function () {
-      //       console.log('helllllo');
-      //     }
-      //   });
-
-      // });
+      });
 
 
     });
