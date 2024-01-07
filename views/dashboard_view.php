@@ -1,6 +1,7 @@
 <?php
 $objet_dashboard = new  DASHBOARD();
 $result = $objet_dashboard->select();
+$result1 = $objet_dashboard->select();
 ?>
 <!-- component -->
 <!DOCTYPE html>
@@ -32,9 +33,19 @@ $result = $objet_dashboard->select();
                     </div>
                     <div class="flex justify-center">
                         <div class="">
+                            <?php 
+                            $user_id = $_SESSION['user_id'];
+                            while ($line = mysqli_fetch_assoc($result1)) {
+                                if ($line['user_id'] == $user_id) {
+                                    
+                            ?>
+
                             <img class="hidden h-24 w-24 rounded-full sm:block object-cover mr-2 border-4 border-green-400"
                                 src="https://image.flaticon.com/icons/png/512/149/149071.png" alt="">
-                            <p class="font-bold text-base  text-gray-400 pt-2 text-center w-24">Safwan</p>
+                            <p class="font-bold text-base  text-gray-400 pt-2 text-center w-24"><?php echo $line['name']; ?></p>
+
+                            <?php }} ?>
+
                         </div>
                     </div>
                     
@@ -287,28 +298,24 @@ $result = $objet_dashboard->select();
                                                                         </th>
                                                                     </tr>
                                                                 </thead>
-                                                                <tbody class="bg-green-600 divide-y divide-gray-200">
-                                                                    <?php 
-                                                                    $rows = array();
+                                                                <tbody class="bg-white divide-y divide-gray-200">
+                                                                    <?php                                                                   
                                                                     while ($row = mysqli_fetch_assoc($result)) { 
-                                                                        $rows[] = $row?>
+                                                                    ?>
                 
             
-                                                                    <tr class="bg-blue-500">
+                                                                    <tr class="">
                                                                         <td>
-                                                                            1
+                                                                            <?php echo $row['user_id']; ?>
                                                                         </td>
-                                                                        <td
-                                                                            class="px-6 py-4 whitespace-no-wrap text-sm leading-5">
-                                                                            <?php echo $rows['user_id']; ?>
-                                                                            MOHAMMED
+                                                                        <td class="px-6 py-4 whitespace-no-wrap text-sm leading-5">
+                                                                            <?php echo $row['name']; ?>
+                                                                            
                                                                         </td>
-                                                                        <td
-                                                                            class="px-6 py-4 whitespace-no-wrap text-sm leading-5">
-                                                                            ELGHANAM@GMAIL.COM
+                                                                        <td class="px-6 py-4 whitespace-no-wrap text-sm leading-5">
+                                                                            <?php echo $row['email']; ?>
                                                                         </td>
-                                                                        <td
-                                                                            class="px-6 py-4 whitespace-no-wrap text-sm leading-5">
+                                                                        <td class="px-6 py-4 whitespace-no-wrap text-sm leading-5">
                                                                             <div class="flex space-x-4">
                                                                                 <a href="#" class="text-blue-500 hover:text-blue-600">
                                                                                     <svg xmlns="http://www.w3.org/2000/svg"
@@ -322,7 +329,7 @@ $result = $objet_dashboard->select();
                                                                                     </svg>
                                                                                     <p>Edit</p>
                                                                                 </a>
-                                                                                <a href="#" class="text-red-500 hover:text-red-600">
+                                                                                <a href="index.php?page=dashboard&user_id=<?= $row['user_id']; ?>" class="text-red-500 hover:text-red-600">
                                                                                     <svg xmlns="http://www.w3.org/2000/svg"
                                                                                         class="w-5 h-5 mr-1 ml-3"
                                                                                         fill="none" viewBox="0 0 24 24"
