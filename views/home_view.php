@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <title>HOME</title>
 </head>
 <body>
@@ -106,48 +107,28 @@
 <!-- component -->
 <div class="bg-gradient-to-bl from-blue-50 to-violet-50 flex items-center justify-center lg:h-screen">
       <div class="container mx-auto mx-auto p-4">
+
         <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4 xl:grid-cols-4 gap-4">
           <!-- Replace this with your grid items -->
+          <?php while ($row = mysqli_fetch_assoc($result)) { ?>
           <div class="bg-white rounded-lg border p-4">
             <img src="https://placehold.co/300x200/d1d4ff/352cb5.png" alt="Placeholder Image" class="w-full h-48 rounded-md object-cover">
             <div class="px-1 py-4">
-              <div class="font-bold text-xl mb-2">Blog Title</div>
+              <div class="font-bold text-xl mb-2"><?php echo $row['blog_name'] ?></div>
               <p class="text-gray-700 text-base">
-                This is a simple blog card example using Tailwind CSS. You can replace this text with your own blog content.
+              <?php echo $row['blog_description'] ?>
               </p>
             </div>
             
           </div>
-          <div class="bg-white rounded-lg border p-4">
-            <img src="https://placehold.co/300x200/d1d4ff/352cb5.png" alt="Placeholder Image" class="w-full h-48 rounded-md object-cover">
-            <div class="px-1 py-4">
-              <div class="font-bold text-xl mb-2">Blog Title</div>
-              <p class="text-gray-700 text-base">
-                This is a simple blog card example using Tailwind CSS. You can replace this text with your own blog content.
-              </p>
-            </div>
+
+          <?php } ?>
+          
             
-          </div>
-          <div class="bg-white rounded-lg border p-4">
-            <img src="https://placehold.co/300x200/d1d4ff/352cb5.png" alt="Placeholder Image" class="w-full h-48 rounded-md object-cover">
-            <div class="px-1 py-4">
-              <div class="font-bold text-xl mb-2">Blog Title</div>
-              <p class="text-gray-700 text-base">
-                This is a simple blog card example using Tailwind CSS. You can replace this text with your own blog content.
-              </p>
-            </div>
+          
             
-          </div>
-          <div class="bg-white rounded-lg border p-4">
-            <img src="https://placehold.co/300x200/d1d4ff/352cb5.png" alt="Placeholder Image" class="w-full h-48 rounded-md object-cover">
-            <div class="px-1 py-4">
-              <div class="font-bold text-xl mb-2">Blog Title</div>
-              <p class="text-gray-700 text-base">
-                This is a simple blog card example using Tailwind CSS. You can replace this text with your own blog content.
-              </p>
-            </div>
-            
-          </div>
+          
+
           <!-- Add more items as needed -->
         </div>
       </div>
