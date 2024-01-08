@@ -16,9 +16,7 @@ class DASHBOARD{
 
     }
 
-    public function edit(){
-
-    }
+    
 
     public function delet($user_id){
         global $db;
