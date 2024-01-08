@@ -22,16 +22,16 @@ class DASHBOARD{
 
     public function delet($user_id){
         global $db;
-        if (isset($user_id)) {
-            
-            $sql =  "DELETE FROM signup WHERE user_id = $user_id ";
-            $result = mysqli_query($db,$sql);
-            if (!$result) {
-                die("error in deleting");
-            }else {
-                return $result;
-            }
+        
+        
+        $sql =  "DELETE FROM signup WHERE user_id = $user_id ";
+        $result = mysqli_query($db,$sql);
+        if (!$result) {
+            die("error in deleting");
+        }else {
+            header('location:index.php?page=dashboard');
         }
+    
     }
 
     

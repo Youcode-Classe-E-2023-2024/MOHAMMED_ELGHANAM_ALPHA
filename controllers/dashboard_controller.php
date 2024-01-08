@@ -2,12 +2,12 @@
 $objet_dashboard = new  DASHBOARD();
 $result = $objet_dashboard->select();
 $result1 = $objet_dashboard->select();
-echo "<pre>";
-print_r($_GET);
-echo "</pre>";
+if (isset($_GET['user_id'])) {
+    $user_id = $_GET['user_id'];
+    $objet_dashboard->delet($user_id);
+}
 
 
-// $result2 = $objet_dashboard->delet($user_id);
 
 
 ?>
