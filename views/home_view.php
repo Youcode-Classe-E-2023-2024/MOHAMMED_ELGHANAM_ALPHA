@@ -112,7 +112,7 @@
           <!-- Replace this with your grid items -->
           <?php while ($row = mysqli_fetch_assoc($result)) { ?>
           <div class="bg-white rounded-lg border p-4">
-            <img src="https://placehold.co/300x200/d1d4ff/352cb5.png" alt="Placeholder Image" class="w-full h-48 rounded-md object-cover">
+            <img src="data:image/jpeg;base64,<?php echo base64_encode($row['blog_image']); ?>" alt="Placeholder Image" class="w-full h-48 rounded-md object-cover">
             <div class="px-1 py-4">
               <div class="font-bold text-xl mb-2"><?php echo $row['blog_name'] ?></div>
               <p class="text-gray-700 text-base">
