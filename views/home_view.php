@@ -33,7 +33,7 @@
                     <!-- Search Input -->
                     <div class="flex justify-center  mt-2 mr-4">
                         <div class="relative flex w-full flex-wrap items-stretch mb-3">
-                            <input type="search" placeholder="Search" {{ $attributes }}
+                            <input id="search" type="search" placeholder="Search" {{ $attributes }}
                                 class="form-input px-3 py-2 placeholder-gray-400 text-gray-700 relative bg-white rounded-lg text-sm shadow outline-none focus:outline-none focus:shadow-outline w-full pr-10" />
                             <span
                                 class="z-10 h-full leading-snug font-normal  text-center text-gray-400 absolute bg-transparent rounded text-base items-center justify-center w-8 right-0 pr-3 py-3">
@@ -110,20 +110,24 @@
 
         <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4 xl:grid-cols-4 gap-4">
           <!-- Replace this with your grid items -->
-          <?php while ($row = mysqli_fetch_assoc($result)) { ?>
-          <div class="bg-white rounded-lg border p-4">
-            <img src="data:image/jpeg;base64,<?php echo base64_encode($row['blog_image']); ?>" alt="Placeholder Image" class="w-full h-48 rounded-md object-cover">
-            <div class="px-1 py-4">
-              <div class="font-bold text-xl mb-2"><?php echo $row['blog_name'] ?></div>
-              <p class="text-gray-700 text-base">
-              <?php echo $row['blog_description'] ?>
-              </p>
-            </div>
-            
-          </div>
-
-          <?php } ?>
+          <div id="result_search"></div>
           
+          <?php if ($result) {
+   
+            while ($row = mysqli_fetch_assoc($result)) { ?>
+            <div class="bg-white rounded-lg border p-4">
+              <img src="data:image/jpeg;base64,<?php echo base64_encode($row['blog_image']); ?>" alt="Placeholder Image" class="w-full h-48 rounded-md object-cover">
+              <div class="px-1 py-4">
+                <div class="font-bold text-xl mb-2"><?php echo $row['blog_name'] ?></div>
+                <p class="text-gray-700 text-base">
+                <?php echo $row['blog_description'] ?>
+                </p>
+              </div>
+
+            </div>
+  
+          <?php } } ?>
+  
             
           
             
@@ -135,5 +139,27 @@
     </div>
 
 
+
+    <script>
+      $(document).ready(function () {
+        $("#search").keyup(function (e) { 
+                var input = $(this).val();
+                // alert(input);
+                if (input != "") {
+                    $.ajax({
+                        type: "post",
+                        url: "index.php?page=home",
+                        data: {
+                            input:input
+                        },
+                        
+                        success: function (response) {
+                            $("#result_search").html(response);
+                        }
+                    });
+                }
+            });
+      });
+    </script>
 </body>
 </html>
